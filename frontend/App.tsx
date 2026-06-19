@@ -1,10 +1,10 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 
-import LoadingIntro from './components/LoadingIntro'
-import PageTransitionShell from './components/PageTransitionShell'
-import ApologyIntroPage from './pages/ApologyIntroPage'
-import PandaDetailPlaceholderPage from './pages/PandaDetailPlaceholderPage'
-import PandaSelectionPage from './pages/PandaSelectionPage'
+import LoadingIntro from '../src/components/LoadingIntro'
+import PageTransitionShell from '../src/components/PageTransitionShell'
+import ApologyIntroPage from '../src/pages/ApologyIntroPage'
+import PandaDetailPlaceholderPage from '../src/pages/PandaDetailPlaceholderPage'
+import PandaSelectionPage from '../src/pages/PandaSelectionPage'
 
 export default function App() {
   return (

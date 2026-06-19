@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react'
 import { Image as ImageIcon } from 'lucide-react'
 
 type PhotoShapePlaceholderProps = {
@@ -6,6 +7,7 @@ type PhotoShapePlaceholderProps = {
   className?: string
   src?: string
   alt?: string
+  style?: CSSProperties
 }
 
 const heartClipPath =
@@ -17,6 +19,7 @@ export default function PhotoShapePlaceholder({
   className = '',
   src,
   alt,
+  style,
 }: PhotoShapePlaceholderProps) {
   const fallbackContent = (
     <div>
@@ -32,10 +35,7 @@ export default function PhotoShapePlaceholder({
 
   if (variant === 'heart') {
     return (
-      <div
-        className={`relative overflow-hidden ${className}`}
-        style={src ? { clipPath: heartClipPath } : undefined}
-      >
+      <div className={`relative overflow-hidden ${className}`} style={src ? { ...style, clipPath: heartClipPath } : style}>
         {src ? (
           <img src={src} alt={alt ?? label} className="h-full w-full object-cover shadow-md" />
         ) : (
@@ -50,9 +50,7 @@ export default function PhotoShapePlaceholder({
               <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-pink-500 dark:text-pink-300">
                 Photo
               </p>
-              <p className="mt-1 max-w-[7rem] text-[11px] leading-4 text-muted-foreground">
-                {label}
-              </p>
+              <p className="mt-1 max-w-[7rem] text-[11px] leading-4 text-muted-foreground">{label}</p>
             </div>
           </>
         )}
@@ -63,26 +61,20 @@ export default function PhotoShapePlaceholder({
   if (variant === 'rounded') {
     return (
       <div
+        style={style}
         className={`flex items-center justify-center overflow-hidden rounded-[2rem] bg-white/95 p-4 text-center shadow-md ring-1 ring-pink-200 dark:bg-card dark:ring-pink-900/60 ${className}`}
       >
-        {src ? (
-          <img src={src} alt={alt ?? label} className="h-full w-full object-cover" />
-        ) : (
-          fallbackContent
-        )}
+        {src ? <img src={src} alt={alt ?? label} className="h-full w-full object-cover" /> : fallbackContent}
       </div>
     )
   }
 
   return (
     <div
+      style={style}
       className={`flex items-center justify-center overflow-hidden rounded-full bg-white/95 p-4 text-center shadow-md ring-1 ring-pink-200 dark:bg-card dark:ring-pink-900/60 ${className}`}
     >
-      {src ? (
-        <img src={src} alt={alt ?? label} className="h-full w-full object-cover" />
-      ) : (
-        fallbackContent
-      )}
+      {src ? <img src={src} alt={alt ?? label} className="h-full w-full object-cover" /> : fallbackContent}
     </div>
   )
 }

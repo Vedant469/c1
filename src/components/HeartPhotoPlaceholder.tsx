@@ -9,11 +9,7 @@ type HeartPhotoPlaceholderProps = {
 const heartClipPath =
   'polygon(50% 100%, 0 58%, 0 24%, 18% 4%, 38% 10%, 50% 24%, 62% 10%, 82% 4%, 100% 24%, 100% 58%)'
 
-export default function HeartPhotoPlaceholder({
-  label,
-  src,
-  alt,
-}: HeartPhotoPlaceholderProps) {
+export default function HeartPhotoPlaceholder({ label, src, alt }: HeartPhotoPlaceholderProps) {
   return (
     <div className="relative h-64 w-64">
       {src ? (

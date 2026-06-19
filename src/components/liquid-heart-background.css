@@ -1,0 +1,358 @@
+.liquid-heart-background {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.liquid-heart-background__wash {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.32), transparent 34%),
+    radial-gradient(circle at 18% 18%, rgba(255, 214, 230, 0.3), transparent 24%),
+    radial-gradient(circle at 82% 20%, rgba(255, 214, 190, 0.22), transparent 24%),
+    radial-gradient(circle at 50% 80%, rgba(255, 198, 220, 0.18), transparent 28%);
+}
+
+.dark .liquid-heart-background__wash {
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.05), transparent 34%),
+    radial-gradient(circle at 18% 18%, rgba(244, 114, 182, 0.12), transparent 24%),
+    radial-gradient(circle at 82% 20%, rgba(251, 146, 60, 0.08), transparent 24%),
+    radial-gradient(circle at 50% 80%, rgba(236, 72, 153, 0.08), transparent 28%);
+}
+
+.liquid-heart-background__glow,
+.liquid-heart-background__glow::before,
+.liquid-heart-background__glow::after {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 9999px;
+  transform: translate(-50%, -50%);
+}
+
+.liquid-heart-background__glow {
+  width: min(54vw, 34rem);
+  height: min(54vw, 34rem);
+  background: radial-gradient(circle, rgba(255, 201, 222, 0.28), rgba(255, 201, 222, 0.08) 42%, transparent 72%);
+  filter: blur(12px);
+}
+
+.liquid-heart-background__glow::before,
+.liquid-heart-background__glow::after {
+  content: '';
+  inset: auto;
+}
+
+.liquid-heart-background__glow::before {
+  width: min(36vw, 24rem);
+  height: min(36vw, 24rem);
+  background: radial-gradient(circle, rgba(255, 158, 196, 0.22), rgba(255, 158, 196, 0.02) 66%);
+  animation: glow-breathe 14s ease-in-out infinite;
+}
+
+.liquid-heart-background__glow::after {
+  width: min(70vw, 46rem);
+  height: min(70vw, 46rem);
+  border: 1px solid rgba(255, 190, 214, 0.16);
+  animation: glow-ring 16s ease-out infinite;
+}
+
+.dark .liquid-heart-background__glow {
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.14), rgba(236, 72, 153, 0.04) 42%, transparent 72%);
+}
+
+.dark .liquid-heart-background__glow::before {
+  background: radial-gradient(circle, rgba(244, 114, 182, 0.14), rgba(244, 114, 182, 0.02) 66%);
+}
+
+.dark .liquid-heart-background__glow::after {
+  border-color: rgba(244, 114, 182, 0.12);
+}
+
+.liquid-heart-background__heart {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(34vw, 19rem);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  animation: heart-center-bloom 12.5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  opacity: 0.26;
+}
+
+.liquid-heart-background__heart::before,
+.liquid-heart-background__heart::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(50% 96%, 8% 56%, 8% 24%, 25% 10%, 41% 12%, 50% 24%, 59% 12%, 75% 10%, 92% 24%, 92% 56%);
+  border-radius: 40% 40% 48% 48%;
+}
+
+.liquid-heart-background__heart::before {
+  background: radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.56), rgba(255, 190, 216, 0.94) 42%, rgba(255, 143, 183, 0.62) 72%, rgba(255, 255, 255, 0.02) 100%);
+}
+
+.liquid-heart-background__heart::after {
+  background: radial-gradient(circle at 50% 48%, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0) 64%);
+  filter: blur(24px);
+  transform: scale(1.08);
+}
+
+.dark .liquid-heart-background__heart::before {
+  background: radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.16), rgba(244, 114, 182, 0.3) 42%, rgba(251, 146, 60, 0.12) 72%, rgba(255, 255, 255, 0.02) 100%);
+}
+
+.dark .liquid-heart-background__heart::after {
+  background: radial-gradient(circle at 50% 48%, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0) 64%);
+}
+
+.liquid-heart-background__heart--secondary {
+  width: min(48vw, 28rem);
+  animation-duration: 17s;
+  animation-delay: -6s;
+  opacity: 0.16;
+}
+
+.liquid-heart-background__heart--secondary::before {
+  background: radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.3), rgba(255, 210, 228, 0.68) 44%, rgba(255, 170, 194, 0.24) 72%, rgba(255, 255, 255, 0.02) 100%);
+}
+
+.dark .liquid-heart-background__heart--secondary::before {
+  background: radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.08), rgba(244, 114, 182, 0.16) 44%, rgba(255, 170, 194, 0.06) 72%, rgba(255, 255, 255, 0.02) 100%);
+}
+
+.liquid-heart-background__ripple {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(28vw, 16rem);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 191, 215, 0.14);
+  animation: ripple-expand 14s ease-out infinite;
+}
+
+.liquid-heart-background__ripple--secondary {
+  animation-delay: -7s;
+}
+
+.dark .liquid-heart-background__ripple {
+  border-color: rgba(244, 114, 182, 0.12);
+}
+
+.liquid-heart-background__blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(42px);
+  opacity: 0.32;
+  animation: blob-drift 20s ease-in-out infinite;
+}
+
+.liquid-heart-background__blob--one {
+  left: 8%;
+  top: 18%;
+  width: 12rem;
+  height: 9rem;
+  background: rgba(255, 191, 218, 0.44);
+}
+
+.liquid-heart-background__blob--two {
+  right: 10%;
+  top: 16%;
+  width: 11rem;
+  height: 10rem;
+  background: rgba(255, 213, 184, 0.34);
+  animation-delay: -7s;
+}
+
+.liquid-heart-background__blob--three {
+  left: 16%;
+  bottom: 12%;
+  width: 13rem;
+  height: 9rem;
+  background: rgba(255, 176, 206, 0.28);
+  animation-delay: -11s;
+}
+
+.liquid-heart-background__blob--four {
+  right: 14%;
+  bottom: 14%;
+  width: 10rem;
+  height: 10rem;
+  background: rgba(255, 201, 160, 0.24);
+  animation-delay: -15s;
+}
+
+.dark .liquid-heart-background__blob--one {
+  background: rgba(244, 114, 182, 0.14);
+}
+
+.dark .liquid-heart-background__blob--two {
+  background: rgba(251, 146, 60, 0.11);
+}
+
+.dark .liquid-heart-background__blob--three {
+  background: rgba(236, 72, 153, 0.1);
+}
+
+.dark .liquid-heart-background__blob--four {
+  background: rgba(249, 115, 22, 0.08);
+}
+
+.liquid-heart-background__mini-heart {
+  position: absolute;
+  color: rgba(255, 161, 193, 0.46);
+  animation: mini-heart-float 16s ease-in-out infinite;
+  line-height: 1;
+}
+
+.dark .liquid-heart-background__mini-heart {
+  color: rgba(244, 114, 182, 0.18);
+}
+
+.liquid-heart-background__mini-heart--one {
+  left: 14%;
+  top: 20%;
+  font-size: 1rem;
+}
+
+.liquid-heart-background__mini-heart--two {
+  right: 18%;
+  top: 26%;
+  font-size: 1.2rem;
+  animation-delay: -4s;
+}
+
+.liquid-heart-background__mini-heart--three {
+  left: 20%;
+  bottom: 22%;
+  font-size: 0.95rem;
+  animation-delay: -8s;
+}
+
+.liquid-heart-background__mini-heart--four {
+  right: 12%;
+  bottom: 18%;
+  font-size: 1.1rem;
+  animation-delay: -11s;
+}
+
+@keyframes heart-center-bloom {
+  0% {
+    transform: translate(-50%, -50%) scale(0.82);
+    opacity: 0.24;
+  }
+  18% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.28;
+  }
+  54% {
+    transform: translate(-50%, -50%) scale(1.34);
+    opacity: 0.16;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.78);
+    opacity: 0.02;
+  }
+}
+
+@keyframes glow-breathe {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(0.96);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.08);
+    opacity: 0.85;
+  }
+}
+
+@keyframes glow-ring {
+  0% {
+    transform: translate(-50%, -50%) scale(0.82);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes ripple-expand {
+  0% {
+    transform: translate(-50%, -50%) scale(0.7);
+    opacity: 0;
+  }
+  16% {
+    opacity: 0.16;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.2);
+    opacity: 0;
+  }
+}
+
+@keyframes blob-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(16px, -18px, 0) scale(1.08);
+  }
+  66% {
+    transform: translate3d(-14px, 12px, 0) scale(0.94);
+  }
+}
+
+@keyframes mini-heart-float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.36;
+  }
+  50% {
+    transform: translateY(-16px) scale(1.08);
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 1024px) {
+  .liquid-heart-background__heart {
+    width: min(42vw, 18rem);
+  }
+
+  .liquid-heart-background__heart--secondary {
+    width: min(58vw, 25rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .liquid-heart-background__heart {
+    width: min(56vw, 15rem);
+  }
+
+  .liquid-heart-background__heart--secondary {
+    width: min(74vw, 22rem);
+  }
+
+  .liquid-heart-background__blob {
+    filter: blur(30px);
+    opacity: 0.26;
+  }
+
+  .liquid-heart-background__glow {
+    width: min(76vw, 28rem);
+    height: min(76vw, 28rem);
+  }
+}
